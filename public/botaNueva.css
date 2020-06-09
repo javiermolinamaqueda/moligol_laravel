@@ -1,0 +1,29 @@
+#banner{
+    width:700px;
+    height:300px;
+    border:3px solid black;
+    margin:auto;
+    background-size:100% 100%;
+    animation: banner 10s infinite;
+
+}
+
+@keyframes banner {
+    0%, 30%{
+        background-image:url("https://www.futbolsolution.com/11992-large_default/botas-de-futbol-new-balance-furon-50-destroy-ag.jpg");
+    }
+    31%,34% {
+        opacity:0.1;
+    }
+    35%,65% {
+        background-image:url("https://botasdefutbolsala.net/wp-content/uploads/2016/12/botas-de-futbol-blancas-con-detalles-dorados-624x624.jpg");
+        opacity:1;
+    }
+    66%, 69%{
+        opacity:0.1
+    }
+    70%, 100%{
+        opacity:1;
+        background-image:url("https://deportesmanzanedo.com/7817-large_default/botas-de-futbol-adidas-kaiser-5-liga-033201.jpg");
+    }
+}

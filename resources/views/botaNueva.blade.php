@@ -1,7 +1,7 @@
 @extends('plantilla')
 
 @section('enlace')
-    <link rel="stylesheet" href="{{URL::asset('botaNueva.css')}}" type="text/css"/" type="text/css"/>
+    <link rel="stylesheet" href="{{URL::asset('botaNueva.css')}}" type="text/css"/>
 @stop
 
 @section('contenido')

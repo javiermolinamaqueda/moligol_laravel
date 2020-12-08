@@ -1,10 +1,14 @@
 @extends('plantilla')
 
+@section('enlace')
+<!-- Styles -->
+<link rel="stylesheet" href="{{URL::asset('css/main.css')}}" type="text/css"/>
+@stop
+
 @section('contenido')
         
         {{ csrf_field() }}
-        
-        <div class="col-5 mt-4">
+        <div class="contenido col-5 mt-4">
                 <audio id="audio" src="sonido-main.mp3" autoplay="true"> 
                 </audio>
                 

@@ -62,5 +62,8 @@ class LoginController extends Controller
         return redirect()->route('bota.todas');
     }
 
+    public function index(){
+        return view('login');
+    }
 
 }

@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Login
-Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+//Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/', 'Auth\LoginController@index')->name('login');
 
 //rutas para usuario administrador
 Route::middleware(['auth', 'admin:yes'])->group(function(){

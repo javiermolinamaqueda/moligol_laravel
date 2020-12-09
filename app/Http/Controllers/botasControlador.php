@@ -40,7 +40,7 @@ class botasControlador extends Controller
     }
 
     public function listarTodas(){
-        $datos = DB::table('botas')->paginate(2);
+        $datos = DB::table('botas')->paginate(3);
 
         return view('botas',compact('datos'));
     }
@@ -48,7 +48,7 @@ class botasControlador extends Controller
     public function fetch_data(Request $req){
 
         if($req->ajax()){
-            $datos = DB::table('botas')->paginate(2);
+            $datos = DB::table('botas')->paginate(3);
 
             return view('botas1',compact('datos'))->render();
         }

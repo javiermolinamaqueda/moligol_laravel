@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Login
-Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+//Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/', 'Auth\LoginController@index')->name('loginNuevo');
 
 //rutas para usuario administrador
 Route::middleware(['auth', 'admin:yes'])->group(function(){
@@ -28,7 +29,7 @@ Route::middleware(['auth', 'admin:yes'])->group(function(){
 Route::middleware(['auth','admin:no'])->group(function(){
 
     //Marcas
-    Route::get('/inicio', 'marcaControlador@listar')->name('inicio') ;
+    Route::get('/inicio', 'marcaControlador@listar')->name('marcas') ;
     Route::post('/autocompletar', 'marcaControlador@buscar');
 
     //Botas
@@ -36,7 +37,7 @@ Route::middleware(['auth','admin:no'])->group(function(){
     Route::get('/infoBota', 'botasControlador@info')->name('bota.info');
     Route::get('/botas', 'botasControlador@listarTodas')->name('bota.todas');
     Route::get('/botas1', 'botasControlador@fetch_data')->name('botas1');
-    Route::get('/nuevas', 'botasControlador@nueva')->name('bota.proxima');
+    Route::get('/nuevas', 'botasControlador@nueva')->name('inicio');
 
     //Carrito
     Route::get('/carritoAdd', 'carritoControlador@add')->name('carrito.add');

@@ -1,10 +1,14 @@
 @extends('plantilla')
 
+@section('enlace')
+<!-- Styles -->
+<link rel="stylesheet" href="{{URL::asset('css/main.css')}}" type="text/css"/>
+@stop
+
 @section('contenido')
         
         {{ csrf_field() }}
-        
-        <div class="col-5 mt-4">
+        <div class="contenido col-5 mt-4">
                 <audio id="audio" src="sonido-main.mp3" autoplay="true"> 
                 </audio>
                 
@@ -27,12 +31,6 @@
 
                         @endforeach
                 </div>
-        </div>
-        <div class="col-4">
-                
-                <video style="margin-top:30%;" width="350" id="video" loop autoplay preload muted>
-                        <source src="video-main.mp4" type="video/mp4" />
-                </video>
         </div>
 @stop
 

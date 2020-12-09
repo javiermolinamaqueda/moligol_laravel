@@ -51,14 +51,14 @@
 
         <div class="row"> 
                 
-                <div class="col-2 text-white mt-4">
+                <!-- <div class="col-2 text-white mt-4">
                         <ul class="list-group list-group-flush">
                                 <li class="list-group-item list-group-item-info"><a href="{{route ('bota.todas') }}"> Ver Todas</a></li>
                                 <li class="list-group-item list-group-item-info"><a href="{{route ('usuario.crud') }}"> Crud Usuario</a></li>
-                                <li class="list-group-item list-group-item-info"><a href="{{route ('bota.proxima')}}"> Próximas botas</a></li>
+                                <li class="list-group-item list-group-item-info"><a href="{{route ('inicio')}}"> Próximas botas</a></li>
                         </ul>
-                </div> 
-                <div class="col-1"></div>
+                </div> --> 
+                
 		
                 @yield('contenido')
         

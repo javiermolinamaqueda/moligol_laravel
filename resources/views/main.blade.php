@@ -32,12 +32,6 @@
                         @endforeach
                 </div>
         </div>
-        <div class="col-4">
-                
-                <video style="margin-top:30%;" width="350" id="video" loop autoplay preload muted>
-                        <source src="video-main.mp4" type="video/mp4" />
-                </video>
-        </div>
 @stop
 
 @section('script')

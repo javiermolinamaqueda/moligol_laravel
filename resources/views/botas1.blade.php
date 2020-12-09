@@ -1,5 +1,5 @@
 @foreach($datos as $item)
-    <div class="col-5">
+    <div class="col-4">
         <div class="card" style="width: 9rem;">
             <img class="card-img-top" src="{{$item->foto}}" alt="Card image cap">
             <div class="card-body">

@@ -13,7 +13,7 @@ class carritoControlador extends Controller
     public function add(Request $req){
         $car = Carrito::find(session('idCar'));
         $car->botas()->attach($req->get('idBo'),['cantidad'=>$req->get('cantidad')]);
-        return redirect()->route('inicio');
+        //return redirect()->route('inicio');
     }
 
     public function listar(){

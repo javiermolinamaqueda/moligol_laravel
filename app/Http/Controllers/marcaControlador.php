@@ -37,9 +37,8 @@ class marcaControlador extends Controller
         endif;
         $output = "";
         foreach($datos as $row):
-            $output.="         
-                    <div class='col-6'>
-                            <div class='card mb-2' style='width: 12rem; background-image:url(\"https://cadtech.es/wp-content/uploads/2015/09/fondo-GRIS.jpg\");'>
+            $output.="<div class='col-6'>
+                            <div class='card mb-2' style='width: 12rem; background-color:#3B5AFF'>
                                     <a class='card-link' href= ".route ('botMar.ver', ['id'=>$row->idMar] ).">
                                             <div class='card-body'>
                                                 <h4 class='text-center text-dark card-title'>$row->nombre</h4>

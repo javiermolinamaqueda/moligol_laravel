@@ -26,23 +26,32 @@ class botasControlador extends Controller
     public function listarId(Request $req){
         $id = $req->input('id');
 
-        $datos = Marca::find($id)->botas()->get();
+        $marca = Marca::find($id);
+
+        $datos = $marca->botas()->get();
         
-        return view('botMar', ['dat'=>$datos]);
+        return view('botMar', ['dat'=>$datos, 'marca'=>$marca]);
     }
 
     public function info(Request $req){
         $id = $req->input('idBo');
 
         $datos = Bota::find($id);
+        $marca = "";
+        $idMarca = "";
 
-        return view('botaInfo', ['dat'=>$datos]);
+        if($req->input('marca')){
+            $marca = $req->input('marca');
+            $idMarca = $req->input('idMarca');
+        }
+
+        return view('botaInfo', ['dat'=>$datos, 'marca'=>$marca, 'idMarca'=>$idMarca]);
     }
 
     public function listarTodas(){
         $datos = DB::table('botas')->paginate(3);
-
-        return view('botas',compact('datos'));
+        $filas = count($datos);
+        return view('botas',compact('datos','filas'));
     }
 
     public function fetch_data(Request $req){

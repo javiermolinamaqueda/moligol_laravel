@@ -6,7 +6,7 @@
 
 @section('contenido')
 
-    <div class="col-6 mt-4">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mt-4">
         <div class="row">
             <div class="col-6">
                 <h3>Botas de Fútbol</h3>

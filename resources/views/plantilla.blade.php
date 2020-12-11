@@ -20,19 +20,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
 
+    <link rel="stylesheet" href="css/plantilla.css">
+
 </head>
 <body>
 
 	<div class="container mt-4">
 
 		<header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand navbar-light bg-light">
                     
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <div class="col-3">
-                        <a class="navbar-brand" href="{{route ('inicio') }}"><img src="logo.svg" alt="" width="50" height="50">MOLIGOL</a>
+                        <a class="navbar-brand" href="{{route ('inicio') }}"><img src="logo.svg" alt="" width="50" height="50"><span class="moligol">MOLIGOL</span></a>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 nombreUsuario">
                         Bienvenido, {{Auth::user()->name}}
                     </div>
                     <div class="col-3"><a onclick="event.preventDefault();

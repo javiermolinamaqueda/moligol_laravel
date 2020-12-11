@@ -21,7 +21,7 @@
             </div>
             
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <canvas id="grafica" height="200" width="200">
                     </canvas>
                 </div>

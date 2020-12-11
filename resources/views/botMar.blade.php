@@ -5,9 +5,6 @@
             <p><a style="text-decoration:none;" href="{{route('inicio')}}">Inicio </a>/
             <a style="text-decoration:none;" href="{{route('marcas')}}"> Marcas </a>/ {{$marca->nombre}}</p>
         </div>
-        <div class="col-12">
-            Poner texto si eso
-        </div>
         <div class="col-12">    
             <div class="row">      
                 @foreach($dat as $item)

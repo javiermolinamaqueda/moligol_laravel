@@ -29,7 +29,7 @@ class carritoControlador extends Controller
         $new->save();
         session(['idCar'=>$new->idCar]);
 
-        return redirect()->route('inicio');
+        //return redirect()->route('inicio');
     }
 
     public function borrar(Request $req){

@@ -23,6 +23,7 @@ Route::middleware(['auth', 'admin:yes'])->group(function(){
     Route::get('/usuarioCrud', 'usuarioControlador@crud')->name('usuario.crud');
     Route::get('/usuarioBorrar', 'usuarioControlador@borrar')->name('usuario.borrar');
     Route::post('/usuarioAdd', 'usuarioControlador@add')->name('usuario.add');
+    Route::post('/usuarioEditar', 'usuarioControlador@editar')->name('usuario.editar');
 });
 
 //rutas para usuario cliente

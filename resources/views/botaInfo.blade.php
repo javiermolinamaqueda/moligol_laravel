@@ -16,13 +16,13 @@
             @endif
         </div>
             <div class="row">           
-                <div class="col-6 ml-4">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ml-4">
                     <img style="width:25rem;"src="{{$dat->foto}}"/>
                 </div>
-                <div class="col-5">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                     <div class="row mt-5">
-                        <div class="float-center">{{$dat->info}}</div>
-                        <div class="pt-2"><h4>{{$dat->precio}}</h4></div>
+                        <div class="col-11 float-center">{{$dat->info}}</div>
+                        <div class="col-11 pt-2"><h4>{{$dat->precio}}</h4></div>
                     </div>
                     <div class="row mt-2">
                         <form action="{{route('carrito.add')}}">

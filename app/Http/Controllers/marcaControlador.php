@@ -37,7 +37,7 @@ class marcaControlador extends Controller
         endif;
         $output = "";
         foreach($datos as $row):
-            $output.="<div class='col-6'>
+            $output.="<div class='col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                             <div class='card mb-2' style='width: 12rem; background-color:#3B5AFF'>
                                     <a class='card-link' href= ".route ('botMar.ver', ['id'=>$row->idMar] ).">
                                             <div class='card-body'>

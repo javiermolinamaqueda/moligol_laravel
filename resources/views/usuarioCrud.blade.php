@@ -2,59 +2,66 @@
 
 @section('contenido')
     {{ csrf_field() }}
-    <button id="mostrarModal">Añadir Usuario</button>
-    <table id="tabla" class="table">
-        <thead class="thead">
-            <th>ID</th>
-            <th>NOMBRE</th>
-            <th></th>
-            <th></th>
-        </thead>
-        <tbody>
-            @foreach($dat as $row)
+    <div class="col-12">
+      <h4 class="mt-2">USUARIOS</h4>
+      <table id="tabla" class="table table-bordered">
+          <thead class="thead">
+              <th scope="col">ID</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+          </thead>
+          <tbody>
+              @foreach($dat as $row)
 
-                <tr id="usuario-{{$row->idUsu}}" data-idusuario="{{$row->idUsu}}">
-                    <td>{{$row->idUsu}}</td>
-                    <td>{{$row->nombre}}</td>
-                    <td><a class="borrar" href="">Borrar</a></td>
-                    <td></td>
-                </tr>
-
-            @endforeach     
-        </tbody>
-    </table>
-   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-  Launch demo modal
-</button>
+                  <tr id="usuario-{{$row->id}}" data-idusuario="{{$row->id}}"
+                    data-nombre="{{$row->name}}" data-email="{{$row->email}}">
+                      <td>{{$row->id}}</td>
+                      <td>{{$row->name}}</td>
+                      <td>{{$row->email}}</td>
+                      <td><a class="editar btn btn-primary" href="">Editar</a></td>
+                      <td><a class="borrar btn btn-danger" href="">Borrar</a></td>
+                  </tr>
+              @endforeach     
+          </tbody>
+      </table>
+    </div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form action="">
-          Nombre: <input id="nombre" type="text" required/><br>
-          Apellidos: <input id="ape" type="text" required/><br>
-          Email: <input id="ema" type="text" required/><br>
-          Pass: <input id="pass" type="password" required/>
 
+          <div class="form-group">  
+            <label>Id</label> 
+            <input class="form-control" id="idUsu" type="numbre" readonly/>
+          </div>  
+          <div class="form-group">
+            <label>Nombre</label> 
+            <input class="form-control" id="nombre" type="text" required/>
+          </div>
+          <div class="form-group">
+            <label>Email</label> 
+            <input class="form-control" id="ema" type="text" required/>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button id="add" type="button" class="btn btn-primary">Añadir</button>
+        <button id="aceptar" type="button" class="btn btn-primary">Aceptar</button>
       </div>
     </div>
   </div>
-</div>
-                 <p id="prueba"></p>   
+</div> 
 
 
 @stop
@@ -78,13 +85,46 @@
             });
         });
 
+        //Editar
+        $(document).on('click','.editar',function(event){
+          event.preventDefault();
+          var idUsu = $(this).parents('tr').data("idusuario");
+          var _token = $('input[name="_token"]').val();
+          //cargar datos modal
+          $('#nombre').val($(this).parents('tr').data("nombre"));
+          $('#ema').val($(this).parents('tr').data("email"));
+          $('#idUsu').val(idUsu);
+
+          $("#modal").modal('show');
+        })
+
+        //Enviar datos y actualizar
+        $(document).on('click','#aceptar',function(event){
+          var id = document.getElementById('idUsu').value;
+          var name = document.getElementById('nombre').value;
+          var email = document.getElementById('ema').value;
+          var _token = $('input[name="_token"]').val();
+          
+          //enviamos los parametros por ajax
+          $.ajax({
+            url:'usuarioEditar',
+            data: {'id':id, 'name':name, 'email':email, '_token':_token},
+            type:'post',
+            //ocultamos el modal y actualizamos la nueva fila con el nuevo usuario
+            success:function(data){
+              $('#modal').modal('hide');
+              $('#usuario-'+id).html(data);
+            }
+          });
+        });
+
         //Abrir modal
         $(document).on('click','#mostrarModal',function(event){
             $("#modal").modal('show');
         });
 
         //Enviar datos para añadir usuario
-        $(document).on('click','#add',function(event){
+        /*$(document).on('click','#add',function(event){
           var nombre = document.getElementById('nombre').value;
           var ape = document.getElementById('ape').value;
           var email = document.getElementById('ema').value;
@@ -102,7 +142,7 @@
               $('#tabla').append(data);
             }
           });
-        });
+        });*/
     });
 
 </script>

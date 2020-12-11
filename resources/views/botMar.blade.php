@@ -12,8 +12,8 @@
             <div class="row">      
                 @foreach($dat as $item)
 
-                <div class="col-3">
-                    <div class="card" style="width: 9rem;">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="card mt-2" style="width: 9rem;">
                         <img class="card-img-top" src="{{$item->foto}}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Desde {{$item->precio}}</p>

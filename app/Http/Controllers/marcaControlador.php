@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Marca;
+use App\marca;
 use DB;
 
 class marcaControlador extends Controller
@@ -13,7 +13,7 @@ class marcaControlador extends Controller
     }
     //
     public function listar(){
-        $datos = Marca::all();
+        $datos = marca::all();
 
         return view('main',['dat'=>$datos]);
     }
@@ -33,7 +33,7 @@ class marcaControlador extends Controller
                 ->get();
                 
         else:
-            $datos = Marca::all();
+            $datos = marca::all();
         endif;
         $output = "";
         foreach($datos as $row):

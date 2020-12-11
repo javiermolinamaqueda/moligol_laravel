@@ -11,7 +11,7 @@ class botasControlador extends Controller
 {
     //
     public function listar(){
-        $datos = bota::all();
+        $datos = Bota::all();
 
         return view('botas',['dat'=>$datos]);
 

@@ -3,29 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Carrito;
-use App\Bota;
+use App\carrito;
+use App\bota;
 use Illuminate\Support\Facades\Auth;
 
 class carritoControlador extends Controller
 {
     //
     public function add(Request $req){
-        $car = Carrito::find(session('idCar'));
+        $car = carrito::find(session('idCar'));
         $car->botas()->attach($req->get('idBo'),['cantidad'=>$req->get('cantidad')]);
         //return redirect()->route('inicio');
     }
 
     public function listar(){
-        $datos = Carrito::buscar();
+        $datos = carrito::buscar();
         return view('carrito',['datos'=>$datos]);
     }
 
     public function compra(){
-        $car = Carrito::find(session('idCar'));
+        $car = carrito::find(session('idCar'));
         $car->usuario()->attach(Auth::user()->id);
         //creamos un nuevo carrito por si quiere seguir comprando
-        $new = new Carrito();
+        $new = new carrito();
         $new->save();
         session(['idCar'=>$new->idCar]);
 

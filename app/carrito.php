@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Carrito extends Model
+class carrito extends Model
 {
     //
     protected $table = 'carrito';

@@ -24,5 +24,5 @@ Route::post('login',function(){
 });
 
 Route::get('botas', function(){
-    return Bota::all();
+    return bota::all();
 });

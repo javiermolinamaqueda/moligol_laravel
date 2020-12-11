@@ -33,7 +33,7 @@ class carritoControlador extends Controller
     }
 
     public function borrar(Request $req){
-        $car = Carrito::find(session('idCar'));
+        $car = carrito::find(session('idCar'));
         $car->botas()->detach($req->get('idBo'));
 
         return redirect()->route('carrito');

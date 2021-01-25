@@ -2,4 +2,3 @@
 
 Para entrar como administrador:
 Usuario: jacobo@hotmail.com
-Contraseña: jmmaqueda
